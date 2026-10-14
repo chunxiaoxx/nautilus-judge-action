@@ -13,7 +13,7 @@ inputs:
     default: 'mini-swe-bench-lite'
   nautilus_token:
     description: 'Nautilus API token (from https://nautilus.social/developers.html)'
-    required: true
+    required: false
 outputs:
   card_url:
     description: 'URL of the public judgment card'
