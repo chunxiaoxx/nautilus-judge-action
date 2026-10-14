@@ -1,0 +1,17 @@
+name: self-test
+on:
+  workflow_dispatch:
+jobs:
+  smoke:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run own action (smoke submission, is_smoke=true on platform)
+        id: judge
+        uses: ./
+        with:
+          nautilus_token: self-test
+          repo_url: https://github.com/chunxiaoxx/nautilus-judge-action
+          benchmark: mini-swe-bench-lite
+      - name: Report outputs
+        run: echo "status=${{ steps.judge.outputs.status }} card=${{ steps.judge.outputs.card_url }}"
